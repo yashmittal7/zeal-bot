@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zeal ChatBot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-gem">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>ZealAI</span>
+        </div>
+      </div>
+
+      <button class="new-chat-btn" id="newChatBtn">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        New Chat
+      </button>
+
+      <div class="history-list" id="historyList">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="model-badge">
+          <span class="model-dot"></span>
+          zealai-3.5-pro
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat -->
+    <main class="chat-main">
+
+      <!-- Top bar (mobile) -->
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle sidebar">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <span class="topbar-title"> Zeal Chat</span>
+        <div class="topbar-model">3.5 </div>
+      </header>
+
+      <!-- Messages area -->
+      <div class="messages-area" id="messagesArea">
+
+        <!-- Empty state -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-gem">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2>Good to see you.</h2>
+          <p>Ask me anything. I remember our conversation as we go.</p>
+          <div class="suggestion-chips">
+            <button class="chip" data-prompt="Explain how large language models work in simple terms.">How do RAG work?</button>
+            <button class="chip" data-prompt="Write a short Python function to reverse a string.">Reverse a linked list.</button>
+            <button class="chip" data-prompt="What are three underrated productivity techniques?">Productivity tips</button>
+            <button class="chip" data-prompt="What's the difference between REST and GraphQL?">REST vs GraphQL</button>
+          </div>
+        </div>
+
+        <!-- Messages injected here -->
+        <div class="messages-list" id="messagesList"></div>
+
+      </div>
+
+      <!-- Input bar -->
+      <div class="input-bar-wrapper">
+        <div class="input-bar">
+          <textarea
+            id="userInput"
+            placeholder="Message Gemini…"
+            rows="1"
+            autocomplete="off"
+            spellcheck="true"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" aria-label="Send message" disabled>
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <p class="input-disclaimer">Zeal can make mistakes. Verify important information.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
